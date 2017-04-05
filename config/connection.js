@@ -13,10 +13,12 @@ var connection = mysql.createConnection({
   connection.connect(function (err) {
     if (err) {
       console.error("error connecting: " + err.stack);
-      
+      setTimeout(connection.connect);
       return;
     }
   });
+
+
 
 // Export connection for our ORM to use.
 module.exports = connection;
